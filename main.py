@@ -61,11 +61,17 @@ class Ceaser_cipher():
         n = 0
         text1 = ''
         for i in text:
-            if i.isalpha():
-                text1 += self.e_alphabet[i]
-            else:
-                text1 += i
-            n+=1
+            try:
+                if i.isalpha():
+                    if i.isupper():
+                        text1 += str(self.e_alphabet[i.lower()]).upper()
+                    else:
+                        text1 += self.e_alphabet[i]
+                else:
+                    text1 += i
+            except:
+                text1+=i
+            n += 1
         self.result_encode = text1
         return text1
 
@@ -76,11 +82,16 @@ class Ceaser_cipher():
         n = 0
         text1 = ''
         for i in text:
-            if i.isalpha():
-                text1 += self.d_alphabet[i]
-            else:
-                text1 += i
+            try:
+                if i.isalpha():
+                    if i.isupper():
+                        text1 += str(self.d_alphabet[i.lower()]).upper()
+                    else:
+                        text1 += self.d_alphabet[i]
+                else:
+                    text1 += i
+            except:
+                text1+=i
             n += 1
         self.result_decode = text1
         return text1
-
