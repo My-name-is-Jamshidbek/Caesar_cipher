@@ -95,3 +95,4 @@ class Ceaser_cipher():
             n += 1
         self.result_decode = text1
         return text1
+
